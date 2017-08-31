@@ -1,9 +1,9 @@
 <h1><%= @recipe.name %></h1>
-<%= render '/ratings/rating' %>
+<%= render '/ratings/rating' if @user %>
 <h3>Ingredients</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %></li>
+      <li><%= ingredient.name %>  (<%= find_metrics(ingredient, @recipe) %>)</li>
     <% end %>
   </ul>
 

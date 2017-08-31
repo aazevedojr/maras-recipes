@@ -28,9 +28,11 @@ nav ul {
   display: inline;
 }
 
-/*.rating input, button, submit {
+.rating input, button, submit {
   border:none;
-}*/
+  background-color: transparent;
+  font-size: .9em;
+}
 
 .rating {
   unicode-bidi: bidi-override;
@@ -40,7 +42,7 @@ nav ul {
 .rating > span {
   display: inline-block;
   position: relative;
-  width: 1.1em;
+  width: 1.4em;
 }
 .rating > span:hover,
 .rating > span:hover ~ span {
@@ -48,6 +50,7 @@ nav ul {
 }
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
+  z-index: -1;
    content: "\2605";
    position: absolute;
    left: 0;
