@@ -5,20 +5,23 @@ class IngredientsController < ApplicationController
   end
 
   def new
-    # @recipe = 1
-    @metric_options = ["unit", "cup", "oz", "tbsp", "tsp", "g"]
+    @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.new
-    1.times { @ingredient.measurements.new }
+    @measurement = @ingredient.measurements.build
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    p @recipe
+    @ingredient = Ingredient.find_or_create_by(name: ingredient_params["name"])
+    @measurement = @ingredient.measurements.new(ingredient_params["measurements_attributes"]["0"])
 
-    if @ingredient.save
-      redirect_to root_path
+    if @ingredient && @measurement.save
+
+      render 'recipes/show'
     else
-      @errors = @ingredient.errors.full_messages
-      render 'new'
+      @errors = @ingredient.errors.full_messages + @measurement.errors.full_messages
+      render 'form'
     end
   end
 
@@ -46,6 +49,6 @@ class IngredientsController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:name, measurements_attributes: [:amount, :metric, :recipe_id])
+    params.require(:ingredient).permit(:name, measurements_attributes: [:id, :amount, :metric, :recipe_id])
   end
 end
