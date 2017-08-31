@@ -8,9 +8,18 @@ class RecipesController < ApplicationController
   def show
     @user = current_user
     @recipe = Recipe.find(params[:id])
-    @rated = Rating.find_by(recipe_id: @recipe.id, user_id: @user.id)
-    @rating = Rating.new if @user && !@rated
-    @avg_rating = @recipe.ratings.average(:rating).to_i
+
+    if @user && !@rated
+      @rating = Rating.new
+      @rated = Rating.find_by(recipe_id: @recipe.id, user_id: @user.id)
+    else
+    end
+
+    # @rated = Rating.find_by(recipe_id: @recipe.id, user_id: @user.id)
+    # @rating = Rating.new if @user && !@rated
+    @avg_rating = @recipe.ratings.average(:rating).to_f.round
+
+
   end
 
   def new
