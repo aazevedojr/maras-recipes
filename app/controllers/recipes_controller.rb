@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
 
     if @recipe.save
-      redirect_to new_recipe_ingredient_path
+      redirect_to new_recipe_ingredient_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
       render 'new'
@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
 
   def update
     if @recipe.update
-      redirect_to edit_recipe_ingredient_path
+      redirect_to edit_recipe_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
       render 'edit'
