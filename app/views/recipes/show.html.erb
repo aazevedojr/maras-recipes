@@ -3,8 +3,10 @@
 <h3>Ingredients</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %></li>
+      <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %></li>
     <% end %>
   </ul>
+
+  <%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
 <h3>Instructions</h3>
 <%= @recipe.directions %>

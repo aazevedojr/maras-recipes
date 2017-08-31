@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     resources :recipes, only: [:new, :create]
   end
   resources :recipes, except: [:new, :create] do
-    resources :ingredients, except: [:index, :show]
-
+    resources :ingredients, except: [:show]
   end
 
 
