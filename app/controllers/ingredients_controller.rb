@@ -1,24 +1,22 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:edit, :destroy, :update]
+  before_action :set_recipe, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @ingredients = Ingredient.all
   end
 
   def new
-    @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.new
     @measurement = @ingredient.measurements.build
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    p @recipe
     @ingredient = Ingredient.find_or_create_by(name: ingredient_params["name"])
     @measurement = @ingredient.measurements.new(ingredient_params["measurements_attributes"]["0"])
 
     if @ingredient && @measurement.save
-
-      render 'recipes/show'
+      redirect_to recipe_path(@recipe)
     else
       @errors = @ingredient.errors.full_messages + @measurement.errors.full_messages
       render 'form'
@@ -29,9 +27,8 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:recipe_id])
-    if @ingredient.update
-      redirect_to edit_recipe_ingredient_path(@recipe, @ingredient)
+    if @ingredient.update_attributes(ingredient_params)
+      redirect_to recipe_path(@recipe)
     else
       @errors = @ingredient.errors.full_messages
       render 'edit'
@@ -40,12 +37,16 @@ class IngredientsController < ApplicationController
 
   def destroy
     @ingredient.destroy
-    redirect_to
+    redirect_to recipe_path(@recipe)
   end
 
   private
   def set_ingredient
     @ingredient = Ingredient.find(params[:id])
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   def ingredient_params

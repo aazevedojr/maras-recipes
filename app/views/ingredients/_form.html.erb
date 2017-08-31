@@ -1,3 +1,5 @@
+<% require_relative "../../../lib/form_builder.rb" %>
+
 <%= form_for [@recipe, @ingredient] do |f| %>
 
   <% if @errors %>
@@ -10,20 +12,21 @@
 
 <div id="ingredient-form">
   <p>
-    <%= f.label :name %>
+    <%= f.label :name, "Ingredient:" %>
     <%= f.text_field :name %>
 
   </p>
-Measurement:
 
     <%= f.fields_for :measurements do |measurement_form| %>
-        <%= measurement_form.label :amount %>
-        <%= measurement_form.number_field :amount %>
+        <% if @ingredient.unsaved? || measurement_form.from_recipe?(@recipe) %>
+          <%= measurement_form.label :amount, "Amount:" %>
+          <%= measurement_form.number_field :amount %>
 
-        <%= measurement_form.label :metric %>
-        <%= measurement_form.text_field :metric %>
+          <%= measurement_form.label :metric, "Metric:" %>
+          <%= measurement_form.text_field :metric %>
 
-        <%= measurement_form.hidden_field :recipe_id, value: @recipe.id %>
+          <%= measurement_form.hidden_field :recipe_id, value: @recipe.id %>
+        <% end %>
 
     <% end %>
     <%= f.submit "Add ingredient" %>
