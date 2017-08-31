@@ -1,35 +1,25 @@
 <h1>New Ingredient Form</h1>
-<%= form_for [@recipe, @ingredient] do |f| %>
+<%= form_for @ingredient do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <% if @errors %>
-    <ul>
-    <% @errors.each do |error| %>
-      <li><%= error %></li>
+  </p>
+Measurement:
+
+    <%= f.fields_for :measurements do |measurement_form| %>
+        <%= measurement_form.label :amount %>
+        <%= measurement_form.number_field :amount %>
+
+        <%= measurement_form.label :metric %>
+        <%= measurement_form.text_field :metric %>
+
+        <%= measurement_form.hidden_field :recipe_id, value: 1 %>
+
     <% end %>
-    </ul>
-  <% end %>
-
-  <p>
-    <%= f.label       :name %>
-    <%= f.text_field  :name %>
-  </p>
-
-  <p>
-    <%= f.label         :amount %>
-    <%= f.number_field  measurement[:amount] %>
-  </p>
-
-  <p>
-    <%= f.label         :metric %>
-    <%= f.select(measurement[:metric], @metric_options) %>
-  </p>
-
-  <p>
-    <%= f.submit "Next" %>
-  </p>
-
-  <p>
-    <%= link_to("Add more ingredients", new_recipe_ingredient_path(@recipe), remote: true) %>
-  </p>
+    <%= f.submit "Add ingredient" %>
 
 <% end %>
+
+
+

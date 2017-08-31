@@ -5,21 +5,17 @@ class IngredientsController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.find(params[:recipe_id])
+    # @recipe = 1
     @metric_options = ["unit", "cup", "oz", "tbsp", "tsp", "g"]
     @ingredient = Ingredient.new
-    respond_to do |f|
-      f.html {}
-      f.js {}
-    end
+    1.times { @ingredient.measurements.new }
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = @recipe.ingredients.new(ingredient_params)
+    @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-
+      redirect_to root_path
     else
       @errors = @ingredient.errors.full_messages
       render 'new'
@@ -50,6 +46,6 @@ class IngredientsController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:name)
+    params.require(:ingredient).permit(:name, measurements_attributes: [:amount, :metric, :recipe_id])
   end
 end

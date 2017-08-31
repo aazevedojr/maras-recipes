@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show] do
     resources :recipes, only: [:new, :create]
   end
-  resources :recipes, except: [:new, :create] do
-    resources :ingredients
-  end
+  resources :recipes, except: [:new, :create]
+  resources :ingredients
+
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
