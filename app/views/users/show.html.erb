@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @user.username %>!</h1>
+<h2>Your recipes:</h2>
+<ul>
+  <% @user.recipes.each do |recipe| %>
+    <%= link_to recipe.name, recipe %>
+  <% end %>
+</ul>
