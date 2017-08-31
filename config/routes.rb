@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show]
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
 end
