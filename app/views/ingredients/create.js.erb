@@ -1,0 +1,7 @@
+if("<%= j @ingredient.valid? ? 'valid' : 'invalid' %>" === 'valid'){
+  $('form').append("<%= j @ %>")
+}else{
+  console.log('not valid')
+ $('form').append('<%= j "hi" %>')
+}
+
