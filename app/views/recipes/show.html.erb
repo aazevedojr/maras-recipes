@@ -1,13 +1,21 @@
 <h1><%= @recipe.name %></h1>
 <%= render '/ratings/rating' %>
+
+<h4>Difficulty Level(1-10):</h4>
+<p><%= @recipe.difficulty %></p>
+
+<h3>Prep Time:</h3>
+<p><%= @recipe.prep_time %> minutes</p>
+
 <h3>Ingredients</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %>    <%= link_to "Edit Ingredient", edit_recipe_ingredient_path(@recipe, ingredient) %></li>
+      <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %>    <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %></li>
     <% end %>
-
   </ul>
+<%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
 
-  <%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
 <h3>Instructions</h3>
 <%= @recipe.directions %>
+
+<p><%= link_to "Edit Recipe", edit_recipe_path(@recipe) %></p>

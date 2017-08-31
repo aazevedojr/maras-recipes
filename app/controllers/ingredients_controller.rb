@@ -27,8 +27,8 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    if @ingredient.update
-      redirect_to edit_recipe_ingredient_path(@recipe, @ingredient)
+    if @ingredient.update_attributes(ingredient_params)
+      redirect_to recipe_path(@recipe)
     else
       @errors = @ingredient.errors.full_messages
       render 'edit'
