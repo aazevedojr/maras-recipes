@@ -9,11 +9,14 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @category = Category.find(params[:category_id])
     @recipe = Recipe.new
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @category = Category.find(params[:category_id])
+    @recipe = @category.recipes.new(recipe_params.merge({creator_id: current_user.id}))
+
 
     if @recipe.save
       redirect_to new_recipe_ingredient_path
