@@ -5,6 +5,7 @@
     <% @recipe.ingredients.each do |ingredient| %>
       <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %></li>
     <% end %>
+    <%= link_to "Edit Ingredient", edit_recipe_ingredient_path(@recipe) %>
   </ul>
 
   <%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
