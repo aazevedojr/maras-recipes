@@ -1,0 +1,31 @@
+<h1>New Ingredient Form</h1>
+<%= form_for [@recipe, @ingredient] do |f| %>
+
+  <% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= f.label       :name %>
+    <%= f.text_field  :name %>
+  </p>
+
+  <p>
+    <%= f.label         :amount %>
+    <%= f.number_field  measurement[:amount] %>
+  </p>
+
+  <p>
+    <%= f.label         :metric %>
+    <%= f.select(measurement[:metric], @metric_options) %>
+  </p>
+
+  <p>
+    <%= f.submit "Next" %>
+  </p>
+
+<% end %>
