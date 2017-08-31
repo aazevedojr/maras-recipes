@@ -1,5 +1,9 @@
 <h1><%= @recipe.name %></h1>
-<%= render '/ratings/rating' if @user && !@rated %>
+<% if @user && !@rated %>
+  <%= render '/ratings/rating' %>
+<% else %>
+  <%= @avg_rating %> Stars
+<% end %>
 <h3>Ingredients</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
