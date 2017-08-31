@@ -3,7 +3,7 @@
 <% if @user && !@rated %>
   <%= render '/ratings/rating' %>
 <% else %>
-  <%= @avg_rating %> Stars
+  Average Rating: <%= "☆" * @avg_rating %>
 <% end %>
 
 
