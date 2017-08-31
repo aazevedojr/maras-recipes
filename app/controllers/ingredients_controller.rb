@@ -15,11 +15,15 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find_or_create_by(name: ingredient_params["name"])
     @measurement = @ingredient.measurements.new(ingredient_params["measurements_attributes"]["0"])
 
-    if @ingredient && @measurement.save
-      redirect_to recipe_path(@recipe)
-    else
-      @errors = @ingredient.errors.full_messages + @measurement.errors.full_messages
-      render 'form'
+    respond_to do |f|
+      if @ingredient && @measurement.save
+        f.html{ redirect_to recipe_path(@recipe) }
+        f.js {}
+      else
+        @errors = @ingredient.errors.full_messages + @measurement.errors.full_messages
+        f.html { render 'new'}
+        f.js {}
+      end
     end
   end
 
