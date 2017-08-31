@@ -8,6 +8,10 @@ class IngredientsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @metric_options = ["unit", "cup", "oz", "tbsp", "tsp", "g"]
     @ingredient = Ingredient.new
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
   end
 
   def create

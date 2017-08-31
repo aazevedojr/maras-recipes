@@ -28,4 +28,8 @@
     <%= f.submit "Next" %>
   </p>
 
+  <p>
+    <%= link_to("Add more ingredients", new_recipe_ingredient_path(@recipe), remote: true) %>
+  </p>
+
 <% end %>
