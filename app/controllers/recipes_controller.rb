@@ -33,8 +33,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-    if @recipe.update
-      redirect_to edit_recipe_path(@recipe)
+    if @recipe.update_attributes(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
       render 'edit'
@@ -46,15 +46,13 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  private
+private
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
-
-    def recipe_params
-      params.require(:recipe).permit(:name, :category_id, :creator_id, :prep_time,
-        :directions, :difficulty)
-    end
-
+  def recipe_params
+    params.require(:recipe).permit(:name, :category_id, :creator_id, :prep_time,
+      :directions, :difficulty)
+  end
 end
