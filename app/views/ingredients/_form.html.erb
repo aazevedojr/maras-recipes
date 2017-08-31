@@ -10,17 +10,16 @@
 
 <div id="ingredient-form">
   <p>
-    <%= f.label :name %>
+    <%= f.label :name, "Ingredient:" %>
     <%= f.text_field :name %>
 
   </p>
-Measurement:
 
     <%= f.fields_for :measurements do |measurement_form| %>
-        <%= measurement_form.label :amount %>
+        <%= measurement_form.label :amount, "Amount:" %>
         <%= measurement_form.number_field :amount %>
 
-        <%= measurement_form.label :metric %>
+        <%= measurement_form.label :metric, "Metric:" %>
         <%= measurement_form.text_field :metric %>
 
         <%= measurement_form.hidden_field :recipe_id, value: @recipe.id %>
