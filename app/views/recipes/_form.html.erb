@@ -1,4 +1,4 @@
-<%= form_for :recipe, url: recipes_path do |f| %>
+<%= form_for [@category, @recipe] do |f| %>
 
   <% if @errors %>
     <ul>
@@ -28,13 +28,6 @@
     <%= f.number_field  :difficulty %>
   </p>
 
-  <p>
-    <%= f.hidden_field_tag(:category_id, @category.id) %>
-  </p>
-
-  <p>
-    <%= f.hidden_field_tag(:creator_id, current_user.id) %>
-  </p>
 
   <p>
     <%= f.submit "Next" %>
