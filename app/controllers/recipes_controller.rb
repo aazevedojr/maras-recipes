@@ -6,8 +6,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @rating = Rating.new
     @user = current_user
+    @rating = Rating.new if @user
     @recipe = Recipe.find(params[:id])
   end
 
