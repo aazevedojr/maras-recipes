@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
   end
 
   def new

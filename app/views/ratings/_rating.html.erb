@@ -1,0 +1,42 @@
+<div class="rating">
+  <span>
+    <%= form_for [@recipe, @rating] do |f| %>
+      <%= f.hidden_field :rating, value: 1 %>
+      <%= f.hidden_field :user_id, value: @user.id  %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id  %>
+      <%= f.submit "☆" %>
+    <% end %>
+  </span>
+  <span>
+    <%= form_for [@recipe, @rating] do |f| %>
+      <%= f.hidden_field :rating, value: 2 %>
+      <%= f.hidden_field :user_id, value: @user.id  %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id  %>
+      <%= f.submit "☆" %>
+    <% end %>
+  </span>
+  <span>
+    <%= form_for [@recipe, @rating] do |f| %>
+      <%= f.hidden_field :rating, value: 3 %>
+      <%= f.hidden_field :user_id, value: @user.id  %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id  %>
+      <%= f.submit "☆" %>
+    <% end %>
+  </span>
+  <span>
+    <%= form_for [@recipe, @rating] do |f| %>
+      <%= f.hidden_field :rating, value: 4 %>
+      <%= f.hidden_field :user_id, value: @user.id  %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id  %>
+      <%= f.submit "☆" %>
+    <% end %>
+  </span>
+  <span>
+    <%= form_for [@recipe, @rating] do |f| %>
+      <%= f.hidden_field :rating, value: 5 %>
+      <%= f.hidden_field :user_id, value: @user.id  %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id  %>
+      <%= f.submit "☆" %>
+    <% end %>
+  </span>
+</div>

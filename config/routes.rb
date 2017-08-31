@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
+
+  resources :recipes, only: [:show] do
+    resources :ratings, only: [:create]
+  end
 end
