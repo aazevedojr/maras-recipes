@@ -28,6 +28,10 @@ nav ul {
   display: inline;
 }
 
+/*.rating input, button, submit {
+  border:none;
+}*/
+
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;

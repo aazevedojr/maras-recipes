@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show] do
     resources :recipes, only: [:new, :create]
   end
-  resources :recipes, except: [:new, :create]
-  resources :ingredients
+  resources :recipes, except: [:new, :create] do
+    resources :ingredients, except: [:index, :show]
+
+  end
 
 
   get 'login', to: 'sessions#new'
@@ -15,4 +17,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
+
+  resources :recipes, only: [:show] do
+    resources :ratings, only: [:create]
+  end
 end
