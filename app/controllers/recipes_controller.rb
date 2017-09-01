@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
       @rated = Rating.find_by(recipe_id: @recipe.id, user_id: @user.id)
     end
     @rating = Rating.new if @user && !@rated
-    @avg_rating = @recipe.ratings.average(:rating).to_i
+    @avg_rating = @recipe.ratings.average(:rating).to_f.round
   end
 
   def new

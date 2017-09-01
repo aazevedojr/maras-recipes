@@ -1,6 +1,11 @@
-<% require_relative "../../../lib/form_builder.rb" %>
+<% require_relative '../../../lib/form_builder.rb' %>
 
-<%= form_for [@recipe, @ingredient] do |f| %>
+<% 'This is only here to correct terrible syntax highlighting mistakes.' %>
+<% 'This is also only here to correct terrible syntax highlighting mistakes.' %>
+
+
+<%= form_for [@recipe, @ingredient], html: { class: "ingredient_form" }, remote: @js  do |f| %>
+
 
   <% if @errors %>
     <ul>
@@ -14,7 +19,6 @@
   <p>
     <%= f.label :name, "Ingredient:" %>
     <%= f.text_field :name %>
-
   </p>
 
     <%= f.fields_for :measurements do |measurement_form| %>

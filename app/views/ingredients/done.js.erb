@@ -1,0 +1,9 @@
+if("<%= j @ingredient.valid? ? 'valid' : 'invalid' %>" === 'valid'){
+$('.ingredient_form')[0].reset();
+$('.current').replaceWith("<%= j render 'current' %>")
+
+}else{
+  console.log('not valid')
+ $('form').append('<%= j "hi" %>')
+}
+
