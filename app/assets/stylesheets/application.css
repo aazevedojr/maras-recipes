@@ -122,7 +122,8 @@ nav li {
   content: "🍒";
   padding-right: 5px;
 }
-.avgrating {
+
+.avg-rating {
   word-spacing: -3px;
   color: gold;
   border: 2em;
@@ -134,4 +135,12 @@ nav li {
   word-spacing: double;
   color: gold;
 
+}
+
+.difficulty {
+  font-size: 1.2em;
+}
+
+.time {
+  font-size: 1.1em;
 }

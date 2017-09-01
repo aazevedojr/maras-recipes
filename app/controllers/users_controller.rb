@@ -13,16 +13,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      flash[:success] = "Welcome to Mara's Recipes!"
       redirect_to root_path
     else
       render 'new'
     end
   end
 
- def edit
+  def edit
     @user = current_user
-end
+  end
 
   private
 

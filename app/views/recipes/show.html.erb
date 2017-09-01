@@ -1,24 +1,24 @@
 <h1><%= @recipe.name %></h1>
 
-  <% if @user && !@rated %>
-    <%= render '/ratings/rating' %>
-  <% elsif @avg_rating != 0 %>
-    Average Rating:
-    <div class='avg-rating'>
-      <% @avg_rating.times do %>
-        <span class='rating-star'>★</span>
-      <% end %>
-    </div>
-  <% else %>
-    <h2>Average Rating</h2> <%= "☆" * @avg_rating %>
-    Log-in and be the first to rate this recipe.
-  <% end %>
+<% if @user && !@rated %>
+  <%= render '/ratings/rating' %>
+<% elsif @avg_rating != 0 %>
+  <h2>Average Rating</h2>
+  <div class='avg-rating'>
+    <% @avg_rating.times do %>
+      <span class='rating-star'>★</span>
+    <% end %>
+  </div>
+<% else %>
+  <h2>Average Rating</h2> <%= "☆" * @avg_rating %>
+  Log-in and be the first to rate this recipe.
+<% end %>
 
 <h2>Difficulty Level(1-5):</h2>
-<p><%= @recipe.difficulty %></p>
+<p class="difficulty"> ~ <%= @recipe.difficulty %> ~ </p>
 
 <h2>Prep Time:</h2>
-<p><%= time_converter(@recipe.prep_time) %></p>
+<p class="time"> ~ <%= time_converter(@recipe.prep_time) %> ~ </p>
 
 <h2>Ingredients</h2>
   <ul class="ingredients">
