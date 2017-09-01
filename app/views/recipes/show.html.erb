@@ -2,8 +2,15 @@
 
 <% if @user && !@rated %>
   <%= render '/ratings/rating' %>
+<% elsif @avg_rating != 0 %>
+  Average Rating:
+  <div class='avg-rating'>
+    <% @avg_rating.times do %>
+      <span class='rating-star'>★</span>
+    <% end %>
+  </div>
 <% else %>
-  Average Rating: <%= "☆" * @avg_rating %>
+  Log-in and be the first to rate this recipe.
 <% end %>
 
 

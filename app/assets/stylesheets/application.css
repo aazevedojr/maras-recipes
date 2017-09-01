@@ -56,3 +56,15 @@ nav ul {
    left: 0;
    color: gold;
 }
+
+.avg-rating {
+  word-spacing: -3px;
+  color: gold;
+  border: 2em;
+  background-color: transparent;
+  font-size: 1.1em;
+}
+
+.rating-star {
+  word-spacing: double;
+}
