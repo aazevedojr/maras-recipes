@@ -7,6 +7,7 @@ class IngredientsController < ApplicationController
   end
 
   def new
+    @js = true
     @ingredient = Ingredient.new
     @measurement = @ingredient.measurements.build
   end
@@ -28,11 +29,15 @@ class IngredientsController < ApplicationController
   end
 
   def edit
+    @js = false
   end
 
   def update
-    if @ingredient.update_attributes(ingredient_params)
-      redirect_to recipe_path(@recipe)
+    @ingredient.update_attributes(ingredient_params)
+    p params
+
+    if @ingredient.valid?
+       redirect_to recipe_path(@recipe)
     else
       @errors = @ingredient.errors.full_messages
       render 'edit'

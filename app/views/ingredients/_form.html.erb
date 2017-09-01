@@ -3,7 +3,9 @@
 <% 'This is only here to correct terrible syntax highlighting mistakes.' %>
 <% 'This is also only here to correct terrible syntax highlighting mistakes.' %>
 
-<%= form_for([@recipe, @ingredient], html: { class: "ingredient_form" }, remote: true) do |f| %>
+
+<%= form_for [@recipe, @ingredient], html: { class: "ingredient_form" }, remote: @js  do |f| %>
+
 
   <% if @errors %>
     <ul>
