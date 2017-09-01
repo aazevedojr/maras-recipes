@@ -121,8 +121,8 @@ nav li {
 .ingredients li:before {
   content: "🍒";
   padding-right: 5px;
-
-.avg-rating {
+}
+.avgrating {
   word-spacing: -3px;
   color: gold;
   border: 2em;
@@ -132,4 +132,6 @@ nav li {
 
 .rating-star {
   word-spacing: double;
+  color: gold;
+
 }
