@@ -25,9 +25,8 @@
 
   <p>
     <%= f.label         :difficulty %>
-    <%= f.number_field  :difficulty %>
+    1<%= f.range_field(:difficulty, in: 1..5) %>5
   </p>
-
 
   <p>
     <%= f.submit "Next" %>
