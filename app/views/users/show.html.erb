@@ -2,6 +2,8 @@
 <h2>Your recipes:</h2>
 <ul class="recipes">
   <% @user.recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe %></li>
+    <li>
+      <%= link_to recipe.name, recipe %>
+    </li>
   <% end %>
 </ul>
