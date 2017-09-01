@@ -79,7 +79,7 @@ nav li {
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
-  text-align: left;
+  text-align: center;
 }
 .rating > span {
   display: inline-block;
