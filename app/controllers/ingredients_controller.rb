@@ -34,7 +34,6 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient.update_attributes(ingredient_params)
-    p params
 
     if @ingredient.valid?
        redirect_to recipe_path(@recipe)

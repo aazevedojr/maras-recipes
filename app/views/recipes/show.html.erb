@@ -23,12 +23,23 @@
 <h2>Ingredients</h2>
   <ul class="ingredients">
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %>    <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %></li>
+      <li>
+        <%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %>
+        <% if logged_in? && current_user.id == @recipe.creator_id %>
+          <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
-<%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
+
+<% if logged_in? && current_user.id == @recipe.creator_id %>
+  <%= link_to "Add New Ingredient", new_recipe_ingredient_path(@recipe) %>
+<% end %>
+
 
 <h2>Instructions</h2>
 <%= @recipe.directions %>
 
-<p><%= link_to "Edit Recipe", edit_recipe_path(@recipe) %></p>
+<% if logged_in? && current_user.id == @recipe.creator_id %>
+  <p><%= link_to "Edit Recipe", edit_recipe_path(@recipe) %></p>
+<% end %>
