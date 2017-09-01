@@ -33,6 +33,7 @@ h1, h2, h3 {
 
 .box {
   margin-left: 4%;
+  margin-bottom: 50px;
 }
 
 #logo {
@@ -143,4 +144,13 @@ nav li {
 
 .time {
   font-size: 1.1em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #e27c99;
+  color: #333132;
 }
