@@ -16,16 +16,56 @@
 
 body {
   font-family: Helvetica;
-  margin-left: 3%;
+  background-color: #fffee5;
+  color: #1b1f26;
+}
+
+header {
+  background-color: #e08484;
+  text-align: inline;
+  border-radius: 30px;
+}
+
+h1, h2, h3 {
+  font-family: 'Brush Script MT';
+  color: #333b70;
+}
+
+.box {
+  margin-left: 4%;
 }
 
 #logo {
-  font-size: 2em;
+  font-size: 2.2em;
+  font-family: 'Brush Script MT';
+  font-weight: bold;
+  text-decoration: none;
+  display: inline;
+  padding-left: 2%;
+  color: #493359;
+}
+
+nav {
+  margin-right: 0;
+  float: right;
+  padding-right: 2%;
+  padding-top: 1%;
+  color: #493359;
+}
+
+nav a {
+  text-decoration: none;
+  color: #493359;
 }
 
 nav ul {
   list-style: none;
   display: inline;
+}
+
+nav li {
+  display: inline;
+  font-size: 1.4em;
 }
 
 .rating input, button, submit {
@@ -56,6 +96,31 @@ nav ul {
    left: 0;
    color: gold;
 }
+
+.box ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.box li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.categories li:before {
+  content: "🍤";
+  padding-right: 5px;
+}
+
+.recipes li:before {
+  content: "🧀";
+  padding-right: 5px;
+}
+
+.ingredients li:before {
+  content: "🍒";
+  padding-right: 5px;
 
 .avg-rating {
   word-spacing: -3px;
