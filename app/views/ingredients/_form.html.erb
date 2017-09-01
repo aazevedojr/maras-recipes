@@ -2,7 +2,6 @@
 
 <%= form_for [@recipe, @ingredient], html: { class: "ingredient_form" }, remote: @js  do |f| %>
 
-
   <% if @errors %>
     <ul>
     <% @errors.each do |error| %>
