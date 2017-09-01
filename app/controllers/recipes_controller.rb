@@ -13,6 +13,10 @@ class RecipesController < ApplicationController
     end
     @rating = Rating.new if @user && !@rated
     @avg_rating = @recipe.ratings.average(:rating).to_f.round
+    respond_to do |format|
+      format.html
+      format.json { render json: @recipe }
+    end
   end
 
   def new
