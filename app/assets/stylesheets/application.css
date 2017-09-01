@@ -32,6 +32,7 @@ h1, h2, h3 {
 }
 
 .box {
+  text-align: center;
   margin-left: 4%;
   margin-bottom: 50px;
 }
@@ -100,8 +101,8 @@ nav li {
 
 .box ul {
   list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+  margin-left: 30%;
+  text-align: left;
 }
 
 .box li {
