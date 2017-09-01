@@ -27,6 +27,7 @@
         <%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %>
         <% if logged_in? && current_user.id == @recipe.creator_id %>
           <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %>
+          <%= link_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete %>
         <% end %>
       </li>
     <% end %>
@@ -41,5 +42,8 @@
 <%= @recipe.directions %>
 
 <% if logged_in? && current_user.id == @recipe.creator_id %>
-  <p><%= link_to "Edit Recipe", edit_recipe_path(@recipe) %></p>
+  <p>
+    <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
+    <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
+  </p>
 <% end %>
