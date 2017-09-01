@@ -1,5 +1,9 @@
-<h1>New Ingredient Form</h1>
-<%= render 'form' %>
+<div class="new-ingredient-form">
+  <h1>New Ingredient Form</h1>
+  <%= render 'form' %>
+  <%= render 'current' %>
+  <%= link_to "Back", recipe_path(@recipe) %>
+</div>
 
 
 

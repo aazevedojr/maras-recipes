@@ -12,7 +12,7 @@
 <p><%= @recipe.difficulty %></p>
 
 <h3>Prep Time:</h3>
-<p><%= @recipe.prep_time %> minutes</p>
+<p><%= time_converter(@recipe.prep_time) %></p>
 
 
 <h3>Ingredients</h3>

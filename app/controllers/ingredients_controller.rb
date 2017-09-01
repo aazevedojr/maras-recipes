@@ -7,6 +7,7 @@ class IngredientsController < ApplicationController
   end
 
   def new
+    @js = true
     @ingredient = Ingredient.new
     @measurement = @ingredient.measurements.build
   end
@@ -18,21 +19,25 @@ class IngredientsController < ApplicationController
     respond_to do |f|
       if @ingredient && @measurement.save
         f.html{ redirect_to recipe_path(@recipe) }
-        f.js {}
+        f.js { render 'done' }
       else
         @errors = @ingredient.errors.full_messages + @measurement.errors.full_messages
         f.html { render 'new'}
-        f.js {}
+        f.js { render 'fail' }
       end
     end
   end
 
   def edit
+    @js = false
   end
 
   def update
-    if @ingredient.update_attributes(ingredient_params)
-      redirect_to recipe_path(@recipe)
+    @ingredient.update_attributes(ingredient_params)
+    p params
+
+    if @ingredient.valid?
+       redirect_to recipe_path(@recipe)
     else
       @errors = @ingredient.errors.full_messages
       render 'edit'

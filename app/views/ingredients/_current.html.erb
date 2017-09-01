@@ -1,0 +1,8 @@
+<div class="current">
+  <h3>Current Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %> <%= find_metrics(ingredient, @recipe) %></li>
+      <% end %>
+    </ul>
+</div>
