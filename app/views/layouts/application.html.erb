@@ -10,9 +10,13 @@
 
   <body>
     <%= render partial: 'layouts/header' %>
+    <div class="box">
     <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+    </div>
+    <div class="box">
     <%= yield %>
+    </div>
   </body>
 </html>

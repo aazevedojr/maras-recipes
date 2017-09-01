@@ -1,6 +1,6 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 <h2>Your recipes:</h2>
-<ul>
+<ul class="recipes">
   <% @user.recipes.each do |recipe| %>
     <li><%= link_to recipe.name, recipe %></li>
   <% end %>
