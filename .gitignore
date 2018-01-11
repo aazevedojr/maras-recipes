@@ -16,5 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore .env file.
+# Ignore files with environmental variables for twilio.
 .env
+config/env.yml
