@@ -19,4 +19,10 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
+  protected
+
+  def authenticate!
+    redirect_to new_session_path and return unless logged_in?
+  end
 end

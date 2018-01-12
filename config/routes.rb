@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :recipes, only: [:show] do
     resources :ratings, only: [:create]
   end
+
+  post 'tokens', to: 'tokens#create'
 end
