@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'faker' # to pre-populete the website with recipes
-gem 'twilio-ruby' # for interacting with twilio
+gem 'twilio-ruby', '~> 5.6.0' # for interacting with twilio
 gem 'envyable' # for managing environment variables
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
